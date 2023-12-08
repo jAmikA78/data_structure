@@ -34,7 +34,7 @@ struct Queue
     {
         if (is_Full())
         {
-            cout << "Overflow\n";
+            cout << "Queue Overflow\n";
             return;
         }
         // first element in my queue
@@ -50,7 +50,7 @@ struct Queue
     {
         if (is_Empty())
         {
-            cout << "Underflow\n";
+            cout << "Queue Underflow\n";
             return;
         }
 
@@ -93,10 +93,10 @@ int main()
     while (true)
     {
         cout << "_________________Please enter what you need to do_________________ \n";
-        cout << "       1 >> InQueue element to my Queue\n";
-        cout << "       2 >> DeQueue element from my Queue\n";
-        cout << "       3 >> Print my Queue\n";
-        cout << "       0 >> Exit\n";
+        cout << "           1 >> InQueue element to my Queue\n";
+        cout << "           2 >> DeQueue element from my Queue\n";
+        cout << "           3 >> Print my Queue\n";
+        cout << "           0 >> Exit\n";
         cout << "____________________________________________________________________\n";
         int CHOICE;
         cin >> CHOICE;
