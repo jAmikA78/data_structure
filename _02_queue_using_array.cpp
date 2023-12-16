@@ -1,5 +1,5 @@
 // اذكر الله
-// صلِ على خير الخلق
+// صلِ على خير خلق الله محمد 
 #include <iostream>
 using namespace std;
 
