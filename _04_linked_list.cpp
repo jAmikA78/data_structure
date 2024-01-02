@@ -1,27 +1,31 @@
 // اذكر الله
 // صلِ على خير خلق الله محمد 
+// Include necessary header file for input and output operations
 #include <iostream>
 using namespace std;
 
+// Define a structure for a node in the linked list
 struct node
 {
-    int data;
-    node *next;
-    node(int element)
+    int data;         // Data of the node
+    node *next;       // Pointer to the next node
+    node(int element)  // Constructor to initialize a node with a given element
     {
         data = element;
         next = NULL;
     }
 };
 
+// Define a structure for a linked list
 struct linkedlist
 {
-    node *head;
-    linkedlist()
+    node *head;        // Pointer to the head of the linked list
+    linkedlist()       // Constructor to initialize an empty linked list
     {
         head = NULL;
     }
 
+    // Insert an element at the beginning of the linked list
     void insert_at_beginning(int element)
     {
         node *temp = new node(element);
@@ -29,6 +33,7 @@ struct linkedlist
         head = temp;       // 2nd step
     }
 
+    // Insert an element at the end of the linked list
     void insert_at_end(int element)
     {
         node *temp = new node(element);
@@ -43,6 +48,7 @@ struct linkedlist
         cur->next = temp;
     }
 
+    // Insert an element in sorted order in the linked list
     void insert_in_order(int element)
     {
         node *temp = new node(element);
@@ -58,6 +64,7 @@ struct linkedlist
         cur->next = temp;
     }
 
+    // Insert an element at a specified position in the linked list
     void insert_at_position(int element, int pos)
     {
         node *temp = new node(element);
@@ -79,6 +86,7 @@ struct linkedlist
         cur->next = temp;
     }
 
+    // Delete the first element from the beginning of the linked list
     void delete_from_begainging()
     {
         if (head == NULL)
@@ -91,11 +99,12 @@ struct linkedlist
         delete temp;
     }
 
+    // Delete the last element from the end of the linked list
     void delete_from_end()
     {
         if (head == NULL)
         {
-            cout << "list  is empty\n";
+            cout << "list is empty\n";
             return;
         }
         if (head->next == NULL)
@@ -110,6 +119,7 @@ struct linkedlist
         cur->next = NULL;
     }
 
+    // Delete the element at a specified position in the linked list
     void delete_from_position(int pos)
     {
         if (head == NULL)
@@ -141,6 +151,7 @@ struct linkedlist
         delete temp;
     }
 
+    // Delete the first occurrence of a specified value from the linked list
     void delete_by_value(int element)
     {
         if (head == NULL)
@@ -166,6 +177,7 @@ struct linkedlist
         delete temp;
     }
 
+    // Update the first occurrence of a specified old value with a new value
     void update(int old_value, int new_value)
     {
         if (head == NULL)
@@ -186,15 +198,17 @@ struct linkedlist
         cout << "invalid input\n";
     }
 
+    // Get the size of the linked list
     int size_of_list()
     {
         int cnt = 0;
         node *cur = head;
         while (cur != NULL)
-            cnt++,cur=cur->next;
+            cnt++, cur=cur->next;
         return cnt;
     }
 
+    // Display the elements of the linked list
     void display()
     {
         cout << "-----------here is your linkedlist's element------------------\n";
@@ -208,18 +222,20 @@ struct linkedlist
     }
 };
 
+// Main function
 int main()
 {
     linkedlist list;
     int x, y, z;
     while (true)
     {
+        // User menu for linked list operations
         cout << "-------------please choose what you need-------------\n";
-        cout << "1 >> insert at begining\n";
+        cout << "1 >> insert at beginning\n";
         cout << "2 >> insert at end\n";
         cout << "3 >> insert at position\n";
         cout << "4 >> insert in order\n";
-        cout << "5 >> delete from begaining\n";
+        cout << "5 >> delete from beginning\n";
         cout << "6 >> delete from end\n";
         cout << "7 >> delete from position\n";
         cout << "8 >> delete by value\n";
@@ -229,29 +245,31 @@ int main()
         cout << "0 >> exit\n";
         cin >> x;
         cout << "-------------end-------------\n";
+        
+        // Perform the selected operation
         if (x == 1)
         {
-            cout << "please enter elemnt you need to add\n";
+            cout << "please enter element you need to add\n";
             cin >> y;
             list.insert_at_beginning(y);
         }
         else if (x == 2)
         {
-            cout << "please enter elemnt you need to add\n";
+            cout << "please enter element you need to add\n";
             cin >> y;
             list.insert_at_end(y);
         }
         else if (x == 3)
         {
-            cout << "please enter elemnt you need to add\n";
+            cout << "please enter element you need to add\n";
             cin >> y;
-            cout << "please enter poition of your element\n";
+            cout << "please enter position of your element\n";
             cin >> z;
             list.insert_at_position(y, z);
         }
         else if (x == 4)
         {
-            cout << "please enter elemnt you need to add\n";
+            cout << "please enter element you need to add\n";
             cin >> y;
             list.insert_in_order(y);
         }
