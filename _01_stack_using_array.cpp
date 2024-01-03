@@ -1,18 +1,21 @@
 // اذكر الله
-// صلِ على خير خلق الله محمد 
+// صلِ على خير خلق الله محمد
+// Include necessary header file for input and output operations
 #include <iostream>
 using namespace std;
 
+// create struct to define stack functions
 struct Stack
 {
-    // the top element in my stack
-    int top = -1;
-    int *stack;
-    int SIZE;
+    int top = -1; // the top element in my stack
+    int *stack;   // pointer to intialize stack as array
+    int SIZE;     // size of the stack
 
+    // n here refer to user input (size of the stack)
     Stack(int n)
     {
         SIZE = n;
+        // create array of the stack
         stack = new int[SIZE];
     }
 
@@ -48,7 +51,7 @@ struct Stack
             cout << "Stack Underflow\n";
             return;
         }
-        // remove element from the top of the stack
+        // remove element from the top of the stack by decrement top by 1
         top--;
     }
 
@@ -68,18 +71,21 @@ struct Stack
     }
 };
 
+// main function
 int main()
 {
+    // get size of the stack from user
     int SIZE;
     cout << "Please enter the size of your stack\n";
     cin >> SIZE;
 
-    // create element from Stack struct with size which I have
+    // create a new stack named (myStack) with size which user entered before
     Stack myStack(SIZE);
 
     // start using my stack
     while (true)
     {
+        // take user choice
         cout << "_________________Please enter what you need to do_________________ \n";
         cout << "           1 >> Push element onto the stack\n";
         cout << "           2 >> Pop element from the stack\n";
@@ -88,6 +94,7 @@ int main()
         cout << "____________________________________________________________________\n";
         int CHOICE;
         cin >> CHOICE;
+        // user decied to push element
         if (CHOICE == 1)
         {
             int element;
@@ -95,15 +102,19 @@ int main()
             cin >> element;
             myStack.push(element);
         }
+        // user decied to pop element
         else if (CHOICE == 2)
             myStack.pop();
+        // user decied to print the stack
         else if (CHOICE == 3)
             myStack.Display();
+        // user decied to exit the program
         else if (CHOICE == 0)
             break;
+        // user entered wrong choice
         else
             cout << "You have entered a wrong number, please try again\n";
     }
-
+    // end of the program
     return 0;
 }

@@ -1,5 +1,5 @@
 // اذكر الله
-// صلِ على خير خلق الله محمد 
+// صلِ على خير خلق الله محمد
 // Include necessary header file for input and output operations
 #include <iostream>
 using namespace std;
@@ -7,15 +7,16 @@ using namespace std;
 // Define a structure for the Queue
 struct Queue
 {
-    int front = -1;     // Initialize front to -1
-    int rear = -1;      // Initialize rear to -1
-    int *queue;         // Pointer to the array representing the queue
-    int SIZE;           // Maximum size of the queue
+    int front = -1; // Initialize front to -1
+    int rear = -1;  // Initialize rear to -1
+    int *queue;     // Pointer to the array representing the queue
+    int SIZE;       // Maximum size of the queue
 
-    // Constructor to initialize the queue with a given size
+    // n here refer to user input of queue size
     Queue(int n)
     {
         SIZE = n;
+        // create queue with  size which user entered before
         queue = new int[SIZE];
     }
 
@@ -41,9 +42,9 @@ struct Queue
             return;
         }
 
+        // add first element in queue
         if (is_Empty())
-            front = 0;   // If the queue was empty, set front to 0
-
+            front = 0;
         // Circularly increment rear and add the element
         rear = (rear + 1) % SIZE;
         queue[rear] = element;
@@ -60,7 +61,7 @@ struct Queue
 
         if (front == rear)
         {
-            // If there is only one element in the queue, reset front and rear
+            // If there is only one element in the queue, reset front and rear to -1
             front = -1;
             rear = -1;
         }
@@ -110,12 +111,12 @@ int main()
         cout << "           3 >> Print my Queue\n";
         cout << "           0 >> Exit\n";
         cout << "____________________________________________________________________\n";
-        
+
         // User input for the selected operation
         int CHOICE;
         cin >> CHOICE;
 
-        // Perform the selected operation
+        // user decied to add element
         if (CHOICE == 1)
         {
             int element;
@@ -123,15 +124,19 @@ int main()
             cin >> element;
             queue.inQueue(element);
         }
+        // user decied to delete element
         else if (CHOICE == 2)
             queue.deQueue();
+        // user decied to print the queue
         else if (CHOICE == 3)
             queue.Display();
+        // user decide to Exit the program
         else if (CHOICE == 0)
-            break;  // Exit the loop if the user chooses to exit
+            break;
+        // user entered wrong choise
         else
             cout << "You have entered a wrong number, please try again\n";
     }
-
+    // end of the program
     return 0;
 }

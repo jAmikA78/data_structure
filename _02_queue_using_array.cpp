@@ -1,19 +1,22 @@
 // اذكر الله
-// صلِ على خير خلق الله محمد 
+// صلِ على خير خلق الله محمد
+// Include necessary header file for input and output operations
 #include <iostream>
 using namespace std;
 
+// create struct to define queue function
 struct Queue
 {
-    // the first element in my queue
-    int front = -1;
-    // the last element in my queue
-    int rear = -1;
-    int *queue;
-    int SIZE;
+    int front = -1; // the first element in my queue
+    int rear = -1;  // the last element in my queue
+    int *queue;     // pointer to intiallize queue as array
+    int SIZE;       // size of my queue
+
+    // n here refer to user input of queue size
     Queue(int n)
     {
         SIZE = n;
+        // create queue with  size which user entered before
         queue = new int[SIZE];
     }
 
@@ -80,8 +83,10 @@ struct Queue
     }
 };
 
+// main function
 int main()
 {
+    // take size of queu from user
     int SIZE;
     cout << "Please enter the size of your queue\n";
     cin >> SIZE;
@@ -92,6 +97,7 @@ int main()
     // start using my queue
     while (true)
     {
+        // take user choise
         cout << "_________________Please enter what you need to do_________________ \n";
         cout << "           1 >> InQueue element to my Queue\n";
         cout << "           2 >> DeQueue element from my Queue\n";
@@ -100,6 +106,8 @@ int main()
         cout << "____________________________________________________________________\n";
         int CHOICE;
         cin >> CHOICE;
+
+        // user decied to add element
         if (CHOICE == 1)
         {
             int element;
@@ -107,15 +115,19 @@ int main()
             cin >> element;
             queue.inQueue(element);
         }
+        // user decied to delete element
         else if (CHOICE == 2)
             queue.deQueue();
+        // user decied to pronit queue
         else if (CHOICE == 3)
             queue.Display();
+        // user decide to exit the program
         else if (CHOICE == 0)
             break;
+        // user entered wrong choise
         else
             cout << "You have entered a wrong number, please try again\n";
     }
-
+    // end of the program
     return 0;
 }
